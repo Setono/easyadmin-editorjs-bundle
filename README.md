@@ -15,7 +15,22 @@ composer require setono/easyadmin-editorjs-bundle
 
 ## Usage
 
-TODO
+When configuring your fields in your crud controller, add an `EditorJSField` like this:
+
+```php
+public function configureFields(string $pageName): iterable
+{
+    // ...
+    
+    yield EditorJSField::new('content')
+        ->addHeaderTool(2)
+        ->addListTool()
+        ->addQuoteTool()
+    ;
+    
+    // ...
+}
+```
 
 [ico-version]: https://poser.pugx.org/setono/easyadmin-editorjs-bundle/v/stable
 [ico-license]: https://poser.pugx.org/setono/easyadmin-editorjs-bundle/license
