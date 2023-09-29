@@ -1,0 +1,11 @@
+{%- block setono_easyadmin_editorjs_widget -%}
+    {{ form_widget(form, { attr: attr|merge({
+        'class': 'ea-editorjs-content d-none',
+        'data-editorjs-config': form.vars.ea_crud_form.ea_field.customOptions.get('editorjsConfig')|default(null)|json_encode,
+    }) }) }}
+
+
+    {# TODO: Allow upload of images #}
+    {#<div id="{{ form.vars.id }}-editor" class="field-editorjs" data-source="{{ form.vars.id }}" data-image-by-file="{{ path('app_admin_editorjs_image_by_file') }}"></div>#}
+    <div class="ea-editorjs-editor" id="{{ id }}-editor"></div>
+{%- endblock -%}

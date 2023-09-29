@@ -1,0 +1,58 @@
+{
+    "name": "setono/easyadmin-editorjs-bundle",
+    "description": "Use EditorJS in your EasyAdmin project",
+    "license": "MIT",
+    "type": "symfony-bundle",
+    "authors": [
+        {
+            "name": "Joachim Løvgaard",
+            "email": "joachim@loevgaard.dk"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "easycorp/easyadmin-bundle": "^4.0",
+        "setono/editorjs-bundle": "^1.0@alpha",
+        "setono/editorjs-php": "^1.0@alpha",
+        "setono/html-element": "^1.0@alpha",
+        "symfony/config": "^6.0",
+        "symfony/dependency-injection": "^6.0",
+        "symfony/form": "^6.0",
+        "symfony/http-kernel": "^6.0"
+    },
+    "require-dev": {
+        "matthiasnoback/symfony-dependency-injection-test": "^4.3.1",
+        "nyholm/symfony-bundle-test": "^2.0",
+        "phpspec/prophecy-phpunit": "^2.0.2",
+        "phpunit/phpunit": "^9.6.10",
+        "psalm/plugin-phpunit": "^0.18.4",
+        "psalm/plugin-symfony": "^5.0.3",
+        "setono/code-quality-pack": "^2.4"
+    },
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Setono\\EasyadminEditorjsBundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Setono\\EasyadminEditorjsBundle\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": false,
+            "ergebnis/composer-normalize": true,
+            "php-http/discovery": true
+        },
+        "sort-packages": true
+    },
+    "scripts": {
+        "analyse": "psalm",
+        "check-style": "ecs check",
+        "fix-style": "ecs check --fix",
+        "phpspec": "phpspec run",
+        "phpunit": "phpunit"
+    }
+}
