@@ -3,5 +3,16 @@
 <container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://symfony.com/schema/dic/services"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
+        <!-- Twig -->
+        <service id="setono_easyadmin_editorjs.twig.extension" class="Setono\EasyadminEditorjsBundle\Twig\Extension">
+            <tag name="twig.extension"/>
+        </service>
+
+        <service id="setono_easyadmin_editorjs.twig.runtime" class="Setono\EasyadminEditorjsBundle\Twig\Runtime">
+            <argument type="service" id="setono_editorjs.parser"/>
+            <argument type="service" id="setono_editorjs.renderer"/>
+
+            <tag name="twig.runtime"/>
+        </service>
     </services>
 </container>

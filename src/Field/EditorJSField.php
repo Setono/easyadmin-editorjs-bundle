@@ -23,13 +23,33 @@ final class EditorJSField implements FieldInterface
             ->setFormType(EditorJSType::class)
             ->addJsFiles(
                 'https://cdn.jsdelivr.net/npm/@editorjs/editorjs@2.26.5/dist/editor.min.js',
-                'https://cdn.jsdelivr.net/npm/@editorjs/image@2.8.1/dist/bundle.min.js',
                 '/bundles/setonoeasyadmineditorjs/field-editorjs.js',
             )
             ->addCssFiles('/bundles/setonoeasyadmineditorjs/field-editorjs.css', )
             ->addFormTheme('@SetonoEasyadminEditorjs/form_theme/field_editorjs.html.twig')
+            ->setTemplatePath('@SetonoEasyadminEditorjs/crud/field/editorjs.html.twig')
             ->setCustomOption(self::OPTION_EDITORJS_CONFIG, [])
             ->setRequired(false) // todo has to be fixed later
+        ;
+    }
+
+    public function addDelimiterTool(): self
+    {
+        return $this
+            ->addJsFiles('https://cdn.jsdelivr.net/npm/@editorjs/delimiter@1.3.0/dist/bundle.min.js')
+            ->addTool('delimiter', [
+                'class' => 'Delimiter',
+            ])
+        ;
+    }
+
+    public function addEmbedTool(): self
+    {
+        return $this
+            ->addJsFiles('https://cdn.jsdelivr.net/npm/@editorjs/embed@2.5.3/dist/bundle.min.js')
+            ->addTool('embed', [
+                'class' => 'Embed',
+            ])
         ;
     }
 
@@ -63,6 +83,16 @@ final class EditorJSField implements FieldInterface
             ->addJsFiles('https://cdn.jsdelivr.net/npm/@editorjs/quote@2.5.0/dist/bundle.min.js')
             ->addTool('quote', [
                 'class' => 'Quote',
+            ])
+        ;
+    }
+
+    public function addRawTool(): self
+    {
+        return $this
+            ->addJsFiles('https://cdn.jsdelivr.net/npm/@editorjs/raw@2.4.0/dist/bundle.min.js')
+            ->addTool('raw', [
+                'class' => 'RawTool',
             ])
         ;
     }
