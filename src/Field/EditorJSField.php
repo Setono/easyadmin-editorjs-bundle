@@ -67,6 +67,16 @@ final class EditorJSField implements FieldInterface
         ;
     }
 
+    public function addImageTool(): self
+    {
+        return $this
+            ->addJsFiles('https://cdn.jsdelivr.net/npm/@editorjs/image@2.8.1/dist/bundle.min.js')
+            ->addTool('image', [
+                'class' => 'ImageTool',
+            ])
+        ;
+    }
+
     public function addListTool(): self
     {
         return $this

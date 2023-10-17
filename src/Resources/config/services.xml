@@ -3,6 +3,26 @@
 <container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://symfony.com/schema/dic/services"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
+        <!-- Controller -->
+        <service id="setono_easyadmin_editorjs.controller.upload_image"
+                 class="Setono\EasyadminEditorjsBundle\Controller\UploadImageController" public="true">
+            <argument type="service" id="slugger"/>
+            <argument type="service" id="filesystem"/>
+            <argument type="service" id="mime_types"/>
+            <argument>%setono_easyadmin_editorjs.tools.image.upload_directory%</argument>
+            <argument>%setono_easyadmin_editorjs.tools.image.upload_path%</argument>
+        </service>
+
+        <!-- Field -->
+        <service id="setono_easyadmin_editorjs.field_configurator.editor_js"
+                 class="Setono\EasyadminEditorjsBundle\Field\Configurator\EditorJSConfigurator">
+            <argument type="service" id="router"/>
+            <argument>%setono_easyadmin_editorjs.tools.image.upload_image_by_file_route%</argument>
+            <argument>%setono_easyadmin_editorjs.tools.image.upload_image_by_url_route%</argument>
+
+            <tag name="ea.field_configurator"/>
+        </service>
+
         <!-- Twig -->
         <service id="setono_easyadmin_editorjs.twig.extension" class="Setono\EasyadminEditorjsBundle\Twig\Extension">
             <tag name="twig.extension"/>
