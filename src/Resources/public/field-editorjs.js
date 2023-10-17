@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        console.log(editorjsConfig);
+
         const editor = new EditorJS(editorjsConfig);
 
         document.addEventListener('ea.form.submit', (formEvent) => {

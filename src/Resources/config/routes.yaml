@@ -1,0 +1,11 @@
+setono_easyadmin_editorjs_upload_image_by_file:
+    path: /admin/editorjs/image/upload-by-file
+    methods: [POST]
+    defaults:
+        _controller: setono_easyadmin_editorjs.controller.upload_image::uploadImageByFile
+        
+setono_easyadmin_editorjs_upload_image_by_url:
+    path: /admin/editorjs/image/upload-by-url
+    methods: [POST]
+    defaults:
+        _controller: setono_easyadmin_editorjs.controller.upload_image::uploadImageByUrl
