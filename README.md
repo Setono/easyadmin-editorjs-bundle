@@ -13,6 +13,16 @@ To install this bundle, simply run:
 composer require setono/easyadmin-editorjs-bundle
 ```
 
+### Add route configuration
+
+Add a route import inside `config/routes`:
+
+```yaml
+# config/routes/setono_easyadmin_editorjs.yaml
+setono_easyadmin_editorjs:
+    resource: "@SetonoEasyadminEditorjsBundle/Resources/config/routes.yaml"
+```
+
 ## Usage
 
 When configuring your fields in your crud controller, add an `EditorJSField` like this:
