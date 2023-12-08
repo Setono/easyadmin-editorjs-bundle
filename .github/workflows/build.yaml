@@ -57,6 +57,7 @@ jobs:
                     - "8.2"
 
                 dependencies:
+                    - "lowest"
                     - "highest"
 
                 symfony:
@@ -64,6 +65,12 @@ jobs:
                     - "~6.1.0"
                     - "~6.2.0"
                     - "~6.3.0"
+                    - "~6.4.0"
+                    - "~7.0.0"
+                
+                exclude:
+                    -   php-version: "8.1"
+                        symfony: "~7.0.0"
 
         steps:
             -   name: "Checkout"
@@ -77,6 +84,9 @@ jobs:
                     php-version: "${{ matrix.php-version }}"
                     tools: "composer-require-checker, composer-unused, flex"
 
+            -   name: "Remove require-dev section in composer.json"
+                run: "composer config --unset require-dev"
+            
             -   name: "Install composer dependencies"
                 uses: "ramsey/composer-install@v2"
                 with:
@@ -102,6 +112,7 @@ jobs:
                     - "8.2"
 
                 dependencies:
+                    - "lowest"
                     - "highest"
 
                 symfony:
@@ -109,7 +120,13 @@ jobs:
                     - "~6.1.0"
                     - "~6.2.0"
                     - "~6.3.0"
+                    - "~6.4.0"
+                    - "~7.0.0"
                 
+                exclude:
+                    -   php-version: "8.1"
+                        symfony: "~7.0.0"
+        
         steps:
             -   name: "Checkout"
                 uses: "actions/checkout@v3"
@@ -144,6 +161,7 @@ jobs:
                     - "8.2"
 
                 dependencies:
+                    - "lowest"
                     - "highest"
 
                 symfony:
@@ -151,7 +169,13 @@ jobs:
                     - "~6.1.0"
                     - "~6.2.0"
                     - "~6.3.0"
+                    - "~6.4.0"
+                    - "~7.0.0"
                 
+                exclude:
+                    -   php-version: "8.1"
+                        symfony: "~7.0.0"
+        
         steps:
             -   name: "Checkout"
                 uses: "actions/checkout@v3"
